@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base HSL values converted from gotmEducation palette */
+    /* --color-bg: #0e1116 -> 220 22% 7% */
+    /* --color-surface: #151a21 -> 210 22% 11% */
+    /* --color-text: #e6e8eb -> 216 8% 91% */
+    /* --color-muted: #9aa3ad -> 210 9% 64% */
+    /* --color-accent: #7fb4ff -> 215 100% 75% */
+
+    /* Default to Dark Theme */
+    --background: 220 22% 7%;
+    --foreground: 216 8% 91%;
+
+    --card: 210 22% 11%;
+    --card-foreground: 216 8% 91%;
+
+    --popover: 210 22% 11%;
+    --popover-foreground: 216 8% 91%;
+
+    --primary: 215 100% 75%;
+    --primary-foreground: 220 22% 7%;
+
+    --secondary: 210 22% 11%;
+    /* Surface color */
+    --secondary-foreground: 216 8% 91%;
+
+    --muted: 210 22% 15%;
+    /* Slightly lighter than surface */
+    --muted-foreground: 210 9% 64%;
+
+    --accent: 215 100% 75%;
+    --accent-foreground: 220 22% 7%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 22% 15%;
+    --input: 210 22% 15%;
+    --ring: 215 100% 75%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Same as root since we are going dark-only/dark-first */
+    --background: 220 22% 7%;
+    --foreground: 216 8% 91%;
+    --card: 210 22% 11%;
+    --card-foreground: 216 8% 91%;
+    --popover: 210 22% 11%;
+    --popover-foreground: 216 8% 91%;
+    --primary: 215 100% 75%;
+    --primary-foreground: 220 22% 7%;
+    --secondary: 210 22% 11%;
+    --secondary-foreground: 216 8% 91%;
+    --muted: 210 22% 15%;
+    --muted-foreground: 210 9% 64%;
+    --accent: 215 100% 75%;
+    --accent-foreground: 220 22% 7%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 22% 15%;
+    --input: 210 22% 15%;
+    --ring: 215 100% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
