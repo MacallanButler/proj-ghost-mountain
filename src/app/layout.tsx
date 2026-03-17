@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Ghost of the Mountains",
-    description: "An interactive educational site about snow leopards.",
+    description: "Ghost of the Mountains — an interactive conservation experience dedicated to protecting the snow leopard across 12 countries.",
 };
 
 export default function RootLayout({

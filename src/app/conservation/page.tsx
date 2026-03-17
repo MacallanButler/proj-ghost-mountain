@@ -46,10 +46,10 @@ export default function ConservationPage() {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
                         <Button size="lg" className="text-lg px-8">
-                            Adopt a Snow Leopard
+                            Sponsor a Field Study
                         </Button>
                         <Button variant="outline" size="lg" className="gap-2">
-                            Visit Snow Leopard Trust <ExternalLink className="w-4 h-4" />
+                            Support Our Mission <ExternalLink className="w-4 h-4" />
                         </Button>
                     </div>
                 </section>
