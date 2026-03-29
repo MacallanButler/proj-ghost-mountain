@@ -21,9 +21,8 @@ export default function Home() {
             <ThreatTimeline />
             <KnowledgeQuiz />
             <Solutions />
-            <DonationForm />
-            <Facts />
             <CTA />
+            <DonationForm />
         </div>
     );
 }

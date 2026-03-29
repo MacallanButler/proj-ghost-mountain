@@ -33,10 +33,10 @@ export function Hero() {
             <div className="absolute inset-0 z-0 bg-[radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:3px_3px] opacity-20 pointer-events-none" />
 
             <div className="relative z-10 max-w-[1100px] mx-auto px-6 w-full text-center md:text-left">
-                <h2 className="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-6 tracking-tight text-white drop-shadow-md">
+                <h2 className="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-6 tracking-tight text-white drop-shadow-xl shadow-black">
                     The Ghost of the Mountains
                 </h2>
-                <p className="max-w-[65ch] text-xl text-gray-200 mb-10 drop-shadow md:mx-0 mx-auto">
+                <p className="max-w-[65ch] text-xl text-gray-200 mb-10 drop-shadow-xl shadow-black md:mx-0 mx-auto">
                     An interactive guide to one of the world’s most elusive big cats.
                 </p>
                 <button

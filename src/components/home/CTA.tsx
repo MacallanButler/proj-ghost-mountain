@@ -22,8 +22,8 @@ export function CTA() {
             <div className="max-w-[1200px] mx-auto grid md:grid-cols-3 gap-6">
                 {/* Card 1: Adopt */}
                 <motion.a
-                    href="#"
-                    whileHover={{ y: -10 }}
+                    href="https://shop.snowleopard.org/collections/adoptions"
+                    target="_blank"
                     className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-red-500/50 transition-colors"
                 >
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-red-900/10 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -39,7 +39,7 @@ export function CTA() {
 
                 {/* Card 2: Donate */}
                 <motion.a
-                    href="#"
+                    href="#donate"
                     whileHover={{ y: -10 }}
                     className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-blue-500/50 transition-colors"
                 >
@@ -56,8 +56,8 @@ export function CTA() {
 
                 {/* Card 3: Newsletter */}
                 <motion.a
-                    href="#"
-                    whileHover={{ y: -10 }}
+                    href="https://snowleopard.org/get-involved/subscribe/"
+                    target="_blank"
                     className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-green-500/50 transition-colors"
                 >
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-green-900/10 opacity-0 group-hover:opacity-100 transition-opacity" />
