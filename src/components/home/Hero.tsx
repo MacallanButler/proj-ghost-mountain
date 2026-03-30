@@ -36,7 +36,7 @@ export function Hero() {
                 <h2 className="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-6 tracking-tight text-white drop-shadow-xl shadow-black">
                     The Ghost of the Mountains
                 </h2>
-                <p className="max-w-[65ch] text-xl text-gray-200 mb-10 drop-shadow-xl shadow-black md:mx-0 mx-auto">
+                <p className="max-w-[65ch] text-xl text-white mb-10 md:mx-0 mx-auto bg-black/30 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/10 shadow-xl drop-shadow-xl shadow-black inline-block">
                     An interactive guide to one of the world’s most elusive big cats.
                 </p>
                 <button

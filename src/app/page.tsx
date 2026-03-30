@@ -8,7 +8,6 @@ import { CTA } from "@/components/home/CTA";
 import { SnowLeopardRangeMap } from "@/components/home/RangeMap";
 import { ConservationCharts } from "@/components/home/ConservationCharts";
 import { KnowledgeQuiz } from "@/components/home/KnowledgeQuiz";
-import { DonationForm } from "@/components/home/DonationForm";
 
 export default function Home() {
     return (
@@ -22,7 +21,6 @@ export default function Home() {
             <KnowledgeQuiz />
             <Solutions />
             <CTA />
-            <DonationForm />
         </div>
     );
 }

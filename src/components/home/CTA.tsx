@@ -12,7 +12,7 @@ export function CTA() {
 
             <div className="max-w-[1100px] mx-auto text-center mb-16">
                 <h2 className="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-6 text-foreground tracking-tight">
-                    Join the Pride
+                    Become a Guardian
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-[60ch] mx-auto">
                     Your action today secures a future for the snow leopard tomorrow.
@@ -39,7 +39,7 @@ export function CTA() {
 
                 {/* Card 2: Donate */}
                 <motion.a
-                    href="#donate"
+                    href="/donate"
                     whileHover={{ y: -10 }}
                     className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-blue-500/50 transition-colors"
                 >

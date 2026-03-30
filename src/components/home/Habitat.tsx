@@ -36,7 +36,7 @@ export function Habitat() {
             {/* ... existing header code ... */}
             <div className="max-w-[1100px] mx-auto">
                 {/* ... header div ... */}
-                <div className="mb-16">
+                <div className="mb-16 text-center flex flex-col items-center mx-auto">
                     <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-6 text-foreground">
                         Habitat & Range
                     </h2>
