@@ -32,11 +32,9 @@ export function Hero() {
             {/* Atmospheric grain / overlay */}
             <div className="absolute inset-0 z-0 bg-[radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:3px_3px] opacity-20 pointer-events-none" />
 
-            <div className="relative z-10 max-w-[1100px] mx-auto px-6 w-full text-center md:text-left">
-                <h2 className="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-6 tracking-tight text-white drop-shadow-xl shadow-black">
-                    The Ghost of the Mountains
-                </h2>
-                <p className="max-w-[65ch] text-xl text-white mb-10 md:mx-0 mx-auto bg-black/30 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/10 shadow-xl drop-shadow-xl shadow-black inline-block">
+            <div className="relative z-10 px-6 pt-36 md:pt-44 max-w-[1100px] mx-auto w-full text-center md:text-left">
+                <p className="max-w-[65ch] text-xl md:text-2xl text-white mb-10 font-medium"
+                    style={{ textShadow: '0 1px 3px rgba(0,0,0,1), 0 4px 16px rgba(0,0,0,0.6)' }}>
                     An interactive guide to one of the world’s most elusive big cats.
                 </p>
                 <button

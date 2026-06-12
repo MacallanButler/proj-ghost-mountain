@@ -224,7 +224,6 @@ export function SnowLeopardRangeMap() {
                                     animate={{ opacity: 1 }}
                                     className="bg-stone-900 border border-stone-700/50 rounded-2xl p-6 text-center space-y-2"
                                 >
-                                    <div className="text-3xl">🐆</div>
                                     <p className="text-stone-400 text-sm">Click a marker or country border to see population data and habitat regions.</p>
                                 </motion.div>
                             )}

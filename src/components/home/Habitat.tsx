@@ -2,7 +2,7 @@
 
 // ... types and HabitatItem ...
 import Image from "next/image";
-import habitatImg from "@/assets/habitat2.jpg";
+import habitatImg from "@/assets/habitat1.jpg";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 

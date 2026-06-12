@@ -21,7 +21,7 @@ export default function HabitatCalculator() {
     const remainingRange = calculateRange(year);
 
     return (
-        <Card className="w-full max-w-md mx-auto bg-white/5 backdrop-blur-md border-white/10 text-slate-100">
+        <Card className="w-full max-w-3xl mx-auto bg-white/5 backdrop-blur-md border-white/10 text-slate-100">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-amber-500">
                     <AlertTriangle className="w-6 h-6" />

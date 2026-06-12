@@ -82,9 +82,9 @@ export default function ConservationPage() {
                 </section>
 
                 {/* Interactive tools */}
-                <section className="space-y-4">
+                <section className="space-y-4 flex flex-col items-center">
                     <h2 className="text-2xl font-bold text-foreground text-center">Interactive Exhibits</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="w-full max-w-3xl">
                         <HabitatCalculator />
                     </div>
                 </section>
@@ -139,12 +139,12 @@ export default function ConservationPage() {
                         })}
                     </div>
 
-                    {/* Link to donation form on homepage */}
+                    {/* Link to donation page */}
                     <div className="text-center space-y-4 pt-4">
-                        <p className="text-muted-foreground">Ready to contribute? Our secure donation form is on the homepage.</p>
+                        <p className="text-muted-foreground">Ready to contribute? Visit our secure donation page.</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
-                                href="/#donate"
+                                href="/donate"
                                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/80 transition-all"
                             >
                                 <Heart className="w-4 h-4" /> Donate Now
