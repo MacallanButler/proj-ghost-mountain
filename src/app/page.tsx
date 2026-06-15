@@ -8,6 +8,7 @@ import { CTA } from "@/components/home/CTA";
 import { SnowLeopardRangeMap } from "@/components/home/RangeMap";
 import { ConservationCharts } from "@/components/home/ConservationCharts";
 import { KnowledgeQuiz } from "@/components/home/KnowledgeQuiz";
+import { Gallery } from "@/components/home/Gallery";
 
 export default function Home() {
     return (
@@ -16,8 +17,10 @@ export default function Home() {
             <About />
             <SnowLeopardRangeMap />
             <Habitat />
+            <Gallery />
             <ConservationCharts />
             <ThreatTimeline />
+            <Facts />
             <KnowledgeQuiz />
             <Solutions />
             <CTA />

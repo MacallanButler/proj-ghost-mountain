@@ -56,7 +56,7 @@ export function CTA() {
 
                 {/* Card 3: Newsletter */}
                 <motion.a
-                    href="https://snowleopard.org/get-involved/subscribe/"
+                    href="https://www.snowleopard.org/take-action/enews"
                     target="_blank"
                     className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-green-500/50 transition-colors"
                 >
