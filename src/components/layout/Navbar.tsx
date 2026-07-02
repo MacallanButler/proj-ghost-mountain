@@ -40,6 +40,7 @@ export function Navbar() {
                         <Link href="/#range-map" className="hover:text-white transition-colors">Range Map</Link>
                         <Link href="/#data" className="hover:text-white transition-colors">Data</Link>
                         <Link href="/#quiz" className="hover:text-white transition-colors">Quiz</Link>
+                        <Link href="/story" className="hover:text-white transition-colors">Story</Link>
                         <Link href="/conservation" className="hover:text-white transition-colors">Conservation</Link>
                         <Link href="/donate" className="bg-white/10 border border-white/20 backdrop-blur-md rounded-full px-4 py-1.5 hover:bg-white/20 transition-all">
                             Donate
@@ -65,6 +66,7 @@ export function Navbar() {
                     <Link href="/#range-map" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Range Map</Link>
                     <Link href="/#data" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Data</Link>
                     <Link href="/#quiz" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Quiz</Link>
+                    <Link href="/story" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Story</Link>
                     <Link href="/conservation" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Conservation</Link>
                     <Link href="/donate" onClick={closeMenu} className="bg-primary text-primary-foreground rounded-full px-6 py-3 mt-4 hover:bg-primary/80 transition-all font-semibold inline-block">
                         Donate
