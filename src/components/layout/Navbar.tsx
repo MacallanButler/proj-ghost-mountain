@@ -42,8 +42,16 @@ export function Navbar() {
                         <Link href="/#quiz" className="hover:text-white hover:scale-105 transition-all duration-200">Quiz</Link>
                         <Link href="/story" className="hover:text-white hover:scale-105 transition-all duration-200">Story</Link>
                         <Link href="/conservation" className="hover:text-white hover:scale-105 transition-all duration-200">Conservation</Link>
-                        <Link href="/donate" className="bg-white/10 border border-white/20 backdrop-blur-md rounded-full px-6 py-2 hover:bg-white/25 hover:scale-105 transition-all">
-                            Donate
+                        <Link 
+                            href="/donate" 
+                            className="relative group overflow-hidden rounded-full p-[1.5px] transition-all hover:scale-105 duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
+                        >
+                            {/* Aurora Gradient Background */}
+                            <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 animate-aurora pointer-events-none" />
+                            {/* Dark Button Content */}
+                            <span className="relative block px-6 py-2 rounded-full bg-[#0e1116] group-hover:bg-[#0e1116]/30 text-white font-bold transition-colors duration-300">
+                                Donate
+                            </span>
                         </Link>
                     </div>
 
