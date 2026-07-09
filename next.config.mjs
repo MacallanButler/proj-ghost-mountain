@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/ghost-mountain',
+    reactStrictMode: true,
 };
 
-export default nextConfig;
+export default nextConfig;
