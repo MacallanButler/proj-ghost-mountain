@@ -39,10 +39,15 @@ export function Hero() {
                 </p>
                 <button
                     onClick={scrollToAbout}
-                    className="group inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:bg-white/20 hover:scale-105"
+                    className="relative group overflow-hidden rounded-full p-[1.5px] transition-all hover:scale-105 duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] inline-flex"
                 >
-                    Learn More
-                    <ArrowDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
+                    {/* Aurora Gradient Background */}
+                    <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 animate-aurora pointer-events-none" />
+                    {/* Dark Button Content */}
+                    <span className="relative flex items-center gap-2 px-8 py-4 rounded-full bg-black/60 group-hover:bg-black/30 text-white text-lg font-medium transition-colors duration-300">
+                        <span>Learn More</span>
+                        <ArrowDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
+                    </span>
                 </button>
             </div>
         </header>
