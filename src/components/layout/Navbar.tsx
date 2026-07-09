@@ -26,23 +26,23 @@ export function Navbar() {
                     ? "bg-[#0e1116]/90 backdrop-blur-md border-b border-white/5 py-4 shadow-lg" 
                     : "bg-transparent py-6"
             }`}>
-                <div className="max-w-[1100px] mx-auto flex items-center justify-between">
+                <div className="max-w-[1200px] mx-auto flex items-center justify-between">
                     <Link 
                         href="/" 
                         onClick={closeMenu}
-                        className="text-white font-bold text-xl md:text-2xl tracking-tight hover:opacity-80 transition-opacity"
+                        className="text-white font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tighter hover:text-primary transition-colors duration-300"
                     >
                         The Ghost of the Mountains
                     </Link>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center gap-8 text-sm text-white/80">
-                        <Link href="/#range-map" className="hover:text-white transition-colors">Range Map</Link>
-                        <Link href="/#data" className="hover:text-white transition-colors">Data</Link>
-                        <Link href="/#quiz" className="hover:text-white transition-colors">Quiz</Link>
-                        <Link href="/story" className="hover:text-white transition-colors">Story</Link>
-                        <Link href="/conservation" className="hover:text-white transition-colors">Conservation</Link>
-                        <Link href="/donate" className="bg-white/10 border border-white/20 backdrop-blur-md rounded-full px-4 py-1.5 hover:bg-white/20 transition-all">
+                    <div className="hidden md:flex items-center gap-10 text-base lg:text-lg font-semibold text-white/90">
+                        <Link href="/#range-map" className="hover:text-white hover:scale-105 transition-all duration-200">Range Map</Link>
+                        <Link href="/#data" className="hover:text-white hover:scale-105 transition-all duration-200">Data</Link>
+                        <Link href="/#quiz" className="hover:text-white hover:scale-105 transition-all duration-200">Quiz</Link>
+                        <Link href="/story" className="hover:text-white hover:scale-105 transition-all duration-200">Story</Link>
+                        <Link href="/conservation" className="hover:text-white hover:scale-105 transition-all duration-200">Conservation</Link>
+                        <Link href="/donate" className="bg-white/10 border border-white/20 backdrop-blur-md rounded-full px-6 py-2 hover:bg-white/25 hover:scale-105 transition-all">
                             Donate
                         </Link>
                     </div>
@@ -50,10 +50,10 @@ export function Navbar() {
                     {/* Mobile Menu Button */}
                     <button 
                         onClick={toggleMenu}
-                        className="md:hidden text-white/80 hover:text-white transition-colors p-2 z-50"
+                        className="md:hidden text-white hover:text-primary transition-colors p-2 z-50"
                         aria-label="Toggle navigation menu"
                     >
-                        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
                 </div>
             </nav>
