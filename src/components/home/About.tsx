@@ -1,5 +1,5 @@
 import Image from "next/image";
-import aboutImg from "@/assets/anuj-yadav-vPP2JEUcATs-unsplash.jpg";
+import aboutImg from "@/assets/snow-leopard-about.png";
 import { Eye, ShieldAlert, ThermometerSnowflake } from "lucide-react";
 
 export function About() {
