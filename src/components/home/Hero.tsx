@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import heroBg from "@/assets/raimond-klavins-L6jxljMeUoo-unsplash.jpg";
+import heroMobileBg from "@/assets/hero1.jpg";
 
 export function Hero() {
     const scrollToAbout = () => {
@@ -13,18 +14,33 @@ export function Hero() {
     };
 
     return (
-        <header className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+        <header className="relative min-h-screen min-h-dvh w-full flex flex-col justify-center overflow-hidden">
             {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <Image
-                    src={heroBg}
-                    alt="Mountain landscape at sunset"
-                    fill
-                    className="object-cover"
-                    priority
-                    quality={100}
-                    sizes="100vw"
-                />
+            <div className="absolute inset-0 w-full h-full z-0">
+                {/* Mobile Portrait Viewport */}
+                <div className="block md:hidden absolute inset-0 w-full h-full">
+                    <Image
+                        src={heroMobileBg}
+                        alt="Mountain landscape at sunset"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                        quality={100}
+                        sizes="100vw"
+                    />
+                </div>
+                {/* Desktop Landscape Viewport */}
+                <div className="hidden md:block absolute inset-0 w-full h-full">
+                    <Image
+                        src={heroBg}
+                        alt="Mountain landscape at sunset"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                        quality={100}
+                        sizes="100vw"
+                    />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-background" />
                 <div className="absolute inset-0 bg-background/20" />
             </div>
