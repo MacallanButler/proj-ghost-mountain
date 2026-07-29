@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { About } from "@/components/home/About";
 import { Habitat } from "@/components/home/Habitat";
@@ -10,9 +11,28 @@ import { ConservationCharts } from "@/components/home/ConservationCharts";
 import { KnowledgeQuiz } from "@/components/home/KnowledgeQuiz";
 import { Gallery } from "@/components/home/Gallery";
 
+export const metadata: Metadata = {
+    title: "Ghost of the Mountains — Interactive Snow Leopard Conservation Experience",
+    description: "Explore facts, habitat ranges, and an interactive choose-your-own-path story dedicated to snow leopard conservation across Central Asia.",
+    alternates: {
+        canonical: "/",
+    },
+};
+
 export default function Home() {
+    const websiteJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Ghost of the Mountains",
+        "url": "https://ghostofthemountains.org"
+    };
+
     return (
         <div className="flex flex-col min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+            />
             <Hero />
             <About />
             <SnowLeopardRangeMap />

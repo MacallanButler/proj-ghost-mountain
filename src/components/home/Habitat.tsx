@@ -55,7 +55,7 @@ export function Habitat() {
                                 fill
                                 className="object-cover object-top"
                                 sizes="(max-width: 768px) 100vw, 60vw"
-                                quality={100}
+                                quality={80}
                                 priority
                             />
                         </motion.div>

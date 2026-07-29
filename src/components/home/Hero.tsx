@@ -25,7 +25,7 @@ export function Hero() {
                         fill
                         className="object-cover object-center"
                         priority
-                        quality={100}
+                        quality={85}
                         sizes="100vw"
                     />
                 </div>
@@ -37,7 +37,7 @@ export function Hero() {
                         fill
                         className="object-cover object-center"
                         priority
-                        quality={100}
+                        quality={85}
                         sizes="100vw"
                     />
                 </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Shield, Lock, CheckCircle2, CreditCard, Heart } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const PRESETS = [25, 50, 100, 250];
 
@@ -34,6 +35,11 @@ export function DonationForm() {
     const finalAmount = customAmount ? parseInt(customAmount) || 0 : amount;
 
     const handlePay = () => {
+        trackEvent("donate_click", {
+            amount: finalAmount,
+            program: program,
+            currency: "USD",
+        });
         setProcessing(true);
         setTimeout(() => {
             setProcessing(false);
@@ -167,6 +173,12 @@ export function DonationForm() {
                                     <input type="text" value={cvc} onChange={e => setCvc(e.target.value.replace(/\D/g, "").slice(0, 4))} placeholder="CVC"
                                         className="bg-stone-900 border border-stone-700 text-white text-sm px-4 py-2.5 rounded-lg placeholder:text-stone-600 focus:outline-none focus:border-blue-500 font-mono" maxLength={4} />
                                 </div>
+                            </div>
+
+                            <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-center">
+                                <p className="text-amber-400 text-xs font-medium leading-relaxed">
+                                    This is a proof-of-concept demonstration for a conservation outreach project — no payment is processed and no funds are collected.
+                                </p>
                             </div>
 
                             <button

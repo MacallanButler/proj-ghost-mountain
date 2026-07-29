@@ -4,7 +4,9 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      disallow: '/',
+      allow: '/',
+      disallow: '/donate',
     },
+    sitemap: 'https://ghostofthemountains.org/sitemap.xml',
   };
 }
