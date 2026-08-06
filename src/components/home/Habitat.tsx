@@ -9,13 +9,19 @@ import { motion, useScroll, useTransform } from "framer-motion";
 type HabitatItemProps = {
     title: string;
     description: string;
+    source?: string;
 };
 
-function HabitatItem({ title, description }: HabitatItemProps) {
+function HabitatItem({ title, description, source }: HabitatItemProps) {
     return (
-        <article className="bg-secondary/50 border border-white/5 rounded-md p-6 transition-colors hover:bg-secondary/70 hover:border-white/10">
-            <h3 className="text-lg font-semibold mb-2 text-foreground">{title}</h3>
-            <p className="text-muted-foreground text-sm">{description}</p>
+        <article className="bg-secondary/50 border border-white/5 rounded-md p-6 transition-colors hover:bg-secondary/70 hover:border-white/10 flex flex-col justify-between h-full">
+            <div>
+                <h3 className="text-lg font-semibold mb-2 text-foreground">{title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
+            </div>
+            {source && (
+                <span className="text-[9px] text-stone-500 font-mono mt-4 block select-none">{source}</span>
+            )}
         </article>
     );
 }
@@ -67,18 +73,22 @@ export function Habitat() {
                         <HabitatItem
                             title="Altitude"
                             description="Typically found between 9,800 and 17,000 feet above sea level."
+                            source="Source: Snow Leopard Trust"
                         />
                         <HabitatItem
                             title="Terrain"
                             description="Rocky mountains, cliffs, and steep slopes ideal for ambush hunting."
+                            source="Source: Panthera"
                         />
                         <HabitatItem
                             title="Climate"
                             description="Cold, dry regions with long winters and minimal vegetation."
+                            source="Source: Snow Leopard Trust"
                         />
                         <HabitatItem
                             title="Geographic Range"
                             description="Spans 12 countries including Nepal, China, Mongolia, and India."
+                            source="Source: GSLEP"
                         />
                     </div>
                 </div>

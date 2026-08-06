@@ -9,25 +9,34 @@ import { motion, AnimatePresence } from "framer-motion";
 const faqs = [
     {
         question: "How far can a snow leopard jump?",
-        answer: "Snow leopards can leap over 50 feet (15 meters) in a single jump — that's 6 times their body length! Their powerful hind legs are built for jumping across deep chasms and steep rocky terrain."
+        answer: "Snow leopards can leap over 50 feet (15 meters) in a single jump — that's 6 times their body length! Their powerful hind legs are built for jumping across deep chasms and steep rocky terrain. This explosive jumping ability is crucial for their ambush hunting style, allowing them to pounce on prey from high rocky ledges.",
+        source: "Snow Leopard Trust"
     },
     {
         question: "Why are they called the 'ghosts of the mountains'?",
-        answer: "They are known as the 'ghosts of the mountains' because they are highly solitary, extremely elusive, and their grey-and-white coats patterned with dark rosettes blend in near-perfectly with rock and snow, making them almost impossible to spot."
+        answer: "They are known as the 'ghosts of the mountains' because they are highly solitary, extremely elusive, and their grey-and-white coats patterned with dark rosettes blend in near-perfectly with rock and snow, making them almost impossible to spot.",
+        source: "Panthera"
     },
     {
         question: "Can snow leopards roar like other big cats?",
-        answer: "No, snow leopards cannot roar. Due to their vocal anatomy (they lack a specialized pad of fibroelastic tissue found in roaring cats), they communicate through sounds like chuffs, hisses, growls, and meows."
+        answer: "No, snow leopards cannot roar. Unlike lions, tigers, jaguars, and leopards, their hyoid bone (a structure in the throat) is not fully ossified (rigid), which is anatomically required for roaring. Instead, they communicate through vocalizations like chuffs (or 'prusten' — a soft, non-threatening greeting sound made by blowing air through the nose), hisses, growls, and meows.",
+        source: "Snow Leopard Trust / Panthera"
     },
     {
         question: "How do snow leopards survive in extreme sub-zero temperatures?",
-        answer: "They have a range of specialized adaptations: large nasal cavities that warm freezing air before it reaches their lungs, wide paws that act as natural snowshoes, and long, thick tails that they wrap around their face and body like a blanket for warmth."
+        answer: "They have a range of specialized adaptations: large nasal cavities that warm freezing air before it reaches their lungs, wide paws that act as natural snowshoes, and long, thick tails that they wrap around their face and body like a blanket for warmth.",
+        source: "Snow Leopard Trust"
+    },
+    {
+        question: "What is their hunting style and primary prey?",
+        answer: "Snow leopards are ambush predators. They stalk mountain ungulates (hoofed animals) from above, using the steep, rocky terrain for cover before pursuing them in a short, explosive chase. Their primary prey consists of blue sheep (bharal), Himalayan tahr, and ibex, supplemented by smaller mammals like marmots when larger prey is scarce.",
+        source: "Panthera / GSLEP"
     }
 ];
 
 const otherFacts = [
-    { text: "They engage in 'crepuscular' activity, meaning they are most active during the low-light hours of dawn and dusk." },
-    { text: "Their large paws act like natural snowshoes, distributing weight to prevent sinking into deep snow." }
+    { text: "They engage in 'crepuscular' activity, meaning they are most active during the low-light hours of dawn and dusk.", source: "Panthera" },
+    { text: "Their large paws act like natural snowshoes, distributing weight to prevent sinking into deep snow.", source: "Snow Leopard Trust" }
 ];
 
 export function Facts() {
@@ -108,8 +117,11 @@ export function Facts() {
                                                 exit={{ height: 0, opacity: 0 }}
                                                 transition={{ duration: 0.25, ease: "easeInOut" }}
                                             >
-                                                <div className="px-6 pb-5 text-sm text-stone-300 leading-relaxed border-t border-white/5 pt-3">
-                                                    {faq.answer}
+                                                <div className="px-6 pb-5 text-sm text-stone-300 leading-relaxed border-t border-white/5 pt-3 space-y-2">
+                                                    <p>{faq.answer}</p>
+                                                    {faq.source && (
+                                                        <span className="text-[10px] text-stone-500 block font-mono select-none">Source: {faq.source}</span>
+                                                    )}
                                                 </div>
                                             </motion.div>
                                         )}
@@ -126,11 +138,12 @@ export function Facts() {
                             {otherFacts.map((fact, idx) => (
                                 <div 
                                     key={idx} 
-                                    className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 shadow-lg"
+                                    className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 shadow-lg flex flex-col justify-between"
                                 >
                                     <p className="text-sm text-stone-300 leading-relaxed font-medium">
                                         💡 {fact.text}
                                     </p>
+                                    <span className="text-[9px] text-stone-500 font-mono mt-3 select-none">Source: {fact.source}</span>
                                 </div>
                             ))}
                         </div>

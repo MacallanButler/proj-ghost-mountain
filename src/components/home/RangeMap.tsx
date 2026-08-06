@@ -208,7 +208,8 @@ export function SnowLeopardRangeMap() {
                                                 }}
                                             />
                                         </div>
-                                        <p className="text-xs text-stone-500">{selected.population} of ~4,000 total global population</p>
+                                        <p className="text-xs text-stone-500">{selected.population} estimated individuals in this country</p>
+                                        <span className="text-[9px] text-stone-600 block mt-1 font-mono">Source: IUCN Red List / GSLEP</span>
                                     </div>
                                     <button
                                         onClick={() => setSelected(null)}
@@ -231,11 +232,15 @@ export function SnowLeopardRangeMap() {
 
                         {/* Total summary */}
                         <div className="bg-stone-900 border border-stone-700/50 rounded-xl p-4 space-y-3">
-                            <p className="text-xs text-stone-500 uppercase tracking-wider">Total Global Range</p>
-                            <div className="text-3xl font-bold text-white">
-                                ~4,000<span className="text-stone-500 text-lg"> individuals</span>
+                            <p className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Total Global Population</p>
+                            <div className="text-2xl font-bold text-white">
+                                7,446–7,996<span className="text-stone-500 text-sm block mt-0.5 font-normal">estimated individuals (total)</span>
                             </div>
-                            <div className="space-y-1.5">
+                            <p className="text-[10px] text-stone-400 leading-normal">
+                                The mature breeding population is estimated at 2,710–3,386 individuals.
+                            </p>
+                            <span className="text-[9px] text-stone-500 block font-mono">Source: IUCN Red List / GSLEP</span>
+                            <div className="space-y-1.5 pt-2 border-t border-stone-800">
                                 {Object.entries(statusConfig).map(([key, c]) => {
                                     const count = countries.filter(co => co.status === key).length;
                                     return (

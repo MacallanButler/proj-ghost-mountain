@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { About } from "@/components/home/About";
+import { VitalsAndSize } from "@/components/home/VitalsAndSize";
 import { Habitat } from "@/components/home/Habitat";
 import { ThreatTimeline } from "@/components/home/ThreatTimeline";
 import { Solutions } from "@/components/home/Solutions";
@@ -13,7 +14,7 @@ import { Gallery } from "@/components/home/Gallery";
 
 export const metadata: Metadata = {
     title: "Ghost of the Mountains — Interactive Snow Leopard Conservation Experience",
-    description: "Explore facts, habitat ranges, and an interactive choose-your-own-path story dedicated to snow leopard conservation across Central Asia.",
+    description: "Explore facts, physical stats, taxonomy, and an interactive choose-your-own-path story dedicated to snow leopard conservation across Central Asia.",
     alternates: {
         canonical: "/",
     },
@@ -35,6 +36,7 @@ export default function Home() {
             />
             <Hero />
             <About />
+            <VitalsAndSize />
             <SnowLeopardRangeMap />
             <Habitat />
             <Gallery />

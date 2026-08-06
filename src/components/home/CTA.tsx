@@ -71,6 +71,18 @@ export function CTA() {
                     </span>
                 </motion.a>
             </div>
+
+            {/* Educational Factsheet link */}
+            <div className="mt-12 text-center">
+                <a 
+                    href="/factsheet" 
+                    target="_blank"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 text-stone-300 hover:text-white transition-all text-sm font-semibold hover:bg-white/10"
+                >
+                    <span>📄 Download Printable Educational Fact Sheet (PDF)</span>
+                    <ArrowRight className="w-4 h-4" />
+                </a>
+            </div>
         </section>
     );
 }
