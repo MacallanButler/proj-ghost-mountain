@@ -91,6 +91,9 @@ export function ConservationCharts() {
                                     </LineChart>
                                 </ResponsiveContainer>
                             </div>
+                            <span className="text-[9px] text-stone-500 block mt-3 font-mono select-none">
+                                Source: IUCN Red List / WWF Population Reports
+                            </span>
                         </>
                     ) : (
                         <>
@@ -114,6 +117,9 @@ export function ConservationCharts() {
                                     </BarChart>
                                 </ResponsiveContainer>
                             </div>
+                            <span className="text-[9px] text-stone-500 block mt-3 font-mono select-none">
+                                Source: Wildlife Conservation Society (WCS) / GSLEP Prey Studies
+                            </span>
                         </>
                     )}
                 </div>

@@ -21,7 +21,7 @@ export function Hero() {
                 <div className="block md:hidden absolute inset-0 w-full h-full">
                     <Image
                         src={heroMobileBg}
-                        alt="Mountain landscape at sunset"
+                        alt="A close-up portrait of a snow leopard amidst rocky mountain terrain"
                         fill
                         className="object-cover object-center"
                         priority
@@ -33,7 +33,7 @@ export function Hero() {
                 <div className="hidden md:block absolute inset-0 w-full h-full">
                     <Image
                         src={heroBg}
-                        alt="Mountain landscape at sunset"
+                        alt="Majestic snow leopard in its natural high-altitude rocky habitat at dusk"
                         fill
                         className="object-cover object-center"
                         priority

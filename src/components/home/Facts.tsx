@@ -71,7 +71,7 @@ export function Facts() {
             <div className="absolute inset-0 z-0">
                 <Image
                     src={factsBg}
-                    alt="Mountain landscape"
+                    alt="High altitude snowy Himalayan mountain peaks under heavy cloud cover"
                     fill
                     className="object-cover"
                     quality={80} // Dropped quality from 100 to 80 as requested in brief

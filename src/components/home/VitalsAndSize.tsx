@@ -121,27 +121,23 @@ export function VitalsAndSize() {
                         </div>
 
                         {/* SVG Canvas Box */}
-                        <div className="relative aspect-[4/3] bg-stone-900 border border-stone-800 rounded-xl overflow-hidden mb-6 flex items-end p-4">
+                        <div className="relative aspect-[4/3] bg-stone-900 border border-stone-800 rounded-xl overflow-hidden mb-6">
                             
                             {/* Gridlines backdrop */}
                             <div className="absolute inset-0 bg-[linear-gradient(to_right,#1c1917_1px,transparent_1px),linear-gradient(to_top,#1c1917_1px,transparent_1px)] bg-[size:40px_40px] opacity-40 pointer-events-none" />
-                            
-                            {/* Scale Indicators */}
-                            <div className="absolute left-2 inset-y-0 flex flex-col justify-between text-[9px] text-stone-500 py-4 font-mono pointer-events-none">
-                                <span>2.0m</span>
-                                <span>1.5m</span>
-                                <span>1.0m</span>
-                                <span>0.5m</span>
-                                <span>0m</span>
-                            </div>
-
-                            {/* Ground Line */}
-                            <div className="absolute bottom-4 left-10 right-4 h-[1px] bg-stone-700 pointer-events-none" />
 
                             {/* Silhouette SVG drawing */}
-                            <svg viewBox="0 0 400 300" className="w-full h-full z-10 select-none">
-                                {/* Grid reference markers (hidden on mobile sometimes but SVG scales) */}
-                                <line x1="40" y1="260" x2="380" y2="260" stroke="#44403c" strokeWidth="1" strokeDasharray="2 2" />
+                            <svg viewBox="0 0 400 300" className="absolute inset-0 w-full h-full z-10 select-none">
+                                {/* Ruler Scale Labels (Aligned perfectly inside SVG) */}
+                                <g style={{ pointerEvents: 'none', userSelect: 'none' }}>
+                                    <text x="10" y="53" fill="#78716c" fontSize="9" fontFamily="monospace" textAnchor="start">1.5m</text>
+                                    <text x="10" y="123" fill="#78716c" fontSize="9" fontFamily="monospace" textAnchor="start">1.0m</text>
+                                    <text x="10" y="193" fill="#78716c" fontSize="9" fontFamily="monospace" textAnchor="start">0.5m</text>
+                                    <text x="10" y="263" fill="#78716c" fontSize="9" fontFamily="monospace" textAnchor="start">0.0m</text>
+                                </g>
+
+                                {/* Grid reference markers */}
+                                <line x1="35" y1="260" x2="380" y2="260" stroke="#44403c" strokeWidth="1" />
                                 <line x1="40" y1="190" x2="380" y2="190" stroke="#44403c" strokeWidth="0.5" strokeDasharray="3 3" />
                                 <line x1="40" y1="120" x2="380" y2="120" stroke="#44403c" strokeWidth="0.5" strokeDasharray="3 3" />
                                 <line x1="40" y1="50" x2="380" y2="50" stroke="#44403c" strokeWidth="0.5" strokeDasharray="3 3" />
@@ -169,12 +165,12 @@ export function VitalsAndSize() {
                                         fill="#ea580c" 
                                     />
                                     {compareMode === "cat" && (
-                                        <>
+                                        <g>
                                             <line x1="72" y1="240" x2="72" y2="210" stroke="#f97316" strokeWidth="1" strokeDasharray="2 2" />
                                             <text x="72" y="202" fill="#fb923c" fontSize="9" textAnchor="middle" fontWeight="bold">0.25m Height</text>
                                             <line x1="52" y1="265" x2="96" y2="265" stroke="#f97316" strokeWidth="1" />
                                             <text x="74" y="277" fill="#fb923c" fontSize="9" textAnchor="middle">0.5m Body</text>
-                                        </>
+                                        </g>
                                     )}
                                 </g>
 
@@ -202,9 +198,8 @@ export function VitalsAndSize() {
                                         d="M280,200 C310,200 335,170 345,180 C350,188 335,215 285,215 Z" 
                                         fill="#0891b2" 
                                     />
-                                    
-                                    {(compareMode === "leopard" || compareMode === "all") && (
-                                        <>
+                                                               {(compareMode === "leopard" || compareMode === "all") && (
+                                        <g>
                                             <line x1="140" y1="190" x2="140" y2="155" stroke="#22d3ee" strokeWidth="1" strokeDasharray="2 2" />
                                             <text x="140" y="148" fill="#22d3ee" fontSize="9" textAnchor="middle" fontWeight="bold">0.6m Shoulder</text>
                                             
@@ -213,10 +208,10 @@ export function VitalsAndSize() {
                                             
                                             <path d="M280,205 C310,205 325,190 335,185" fill="none" stroke="#22d3ee" strokeWidth="1" strokeDasharray="2 2" />
                                             <text x="330" y="172" fill="#22d3ee" fontSize="9" textAnchor="middle">1.0m Heavy Tail</text>
-                                        </>
+                                        </g>
                                     )}
                                 </g>
-
+ 
                                 {/* Human (1.8m tall standing) */}
                                 <g 
                                     className="transition-all duration-500" 
@@ -232,10 +227,10 @@ export function VitalsAndSize() {
                                         fill="#8b5cf6" 
                                     />
                                     {compareMode === "human" && (
-                                        <>
+                                        <g>
                                             <line x1="210" y1="66" x2="250" y2="66" stroke="#8b5cf6" strokeWidth="1" strokeDasharray="2 2" />
                                             <text x="256" y="70" fill="#a78bfa" fontSize="9" fontWeight="bold">1.8m Height</text>
-                                        </>
+                                        </g>
                                     )}
                                 </g>
                             </svg>

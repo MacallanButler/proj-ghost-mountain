@@ -52,6 +52,9 @@ export function CTA() {
                     <span className="flex items-center text-blue-400 font-semibold group-hover:gap-2 transition-all">
                         Give Today <ArrowRight className="w-4 h-4 ml-1" />
                     </span>
+                    <span className="text-[10px] text-stone-500 block mt-1">
+                        proof-of-concept — no payment processed
+                    </span>
                 </motion.a>
 
                 {/* Card 3: Newsletter */}

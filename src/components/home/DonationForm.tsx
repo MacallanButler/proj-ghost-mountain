@@ -177,7 +177,7 @@ export function DonationForm() {
 
                             <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-center">
                                 <p className="text-amber-400 text-xs font-medium leading-relaxed">
-                                    This is a proof-of-concept demonstration for a conservation outreach project — no payment is processed and no funds are collected.
+                                    This is a proof-of-concept demonstration — no payment is processed and no funds are collected.
                                 </p>
                             </div>
 
@@ -192,8 +192,8 @@ export function DonationForm() {
                                 }
                             </button>
 
-                            <div className="flex items-center justify-center gap-2 text-xs text-stone-600">
-                                <Lock className="w-3 h-3" /> Demo mode — no real charges are made
+                            <div className="text-center text-xs text-stone-400 mt-1">
+                                This is a proof-of-concept demonstration — no payment is processed and no funds are collected.
                             </div>
                         </>
                     )}
