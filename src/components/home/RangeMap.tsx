@@ -11,23 +11,24 @@ interface Country {
     status: "stronghold" | "fragmented" | "critical";
     area: string;
     coordinates: [number, number]; // [longitude, latitude]
+    conservation: string;
 }
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 const countries: Country[] = [
-    { id: "russia",       name: "Russia",       population: 90,   status: "critical",   area: "Sayan-Altai, Lake Baikal region",     coordinates: [92, 52] },
-    { id: "mongolia",     name: "Mongolia",     population: 953,  status: "stronghold", area: "Altai, Gobi-Altai, Khangai ranges",   coordinates: [95, 46] },
-    { id: "china",        name: "China",        population: 2000, status: "stronghold", area: "Tibetan Plateau, Xinjiang, Qinghai",  coordinates: [90, 36] },
-    { id: "kazakhstan",   name: "Kazakhstan",   population: 180,  status: "critical",   area: "Tian Shan (northern)",                coordinates: [77, 43] },
-    { id: "kyrgyzstan",   name: "Kyrgyzstan",   population: 300,  status: "fragmented", area: "Tian Shan, Pamir-Alai",              coordinates: [74, 41] },
-    { id: "tajikistan",   name: "Tajikistan",   population: 300,  status: "fragmented", area: "Pamir Plateau",                       coordinates: [72, 38] },
-    { id: "uzbekistan",   name: "Uzbekistan",   population: 20,   status: "critical",   area: "Gissar-Alai (western fringe)",       coordinates: [67, 40] },
-    { id: "afghanistan",  name: "Afghanistan",  population: 200,  status: "critical",   area: "Wakhan Corridor, Hindu Kush",         coordinates: [69, 36] },
-    { id: "pakistan",     name: "Pakistan",     population: 200,  status: "fragmented", area: "Karakoram, Gilgit-Baltistan",         coordinates: [73, 35] },
-    { id: "india",        name: "India",        population: 450,  status: "fragmented", area: "Ladakh, Himachal Pradesh, Uttarakhand",coordinates: [78, 33] },
-    { id: "nepal",        name: "Nepal",        population: 397,  status: "stronghold", area: "Dolpo, Mustang, Kangchenjunga",       coordinates: [84, 29] },
-    { id: "bhutan",       name: "Bhutan",       population: 100,  status: "fragmented", area: "Eastern Himalayas, Jigme Dorji NP",  coordinates: [90, 28] },
+    { id: "russia",       name: "Russia",       population: 90,   status: "critical",   area: "Sayan-Altai, Lake Baikal region",     coordinates: [92, 52], conservation: "National conservation strategy in place; among the least-studied range countries due to remote, sparsely surveyed habitat." },
+    { id: "mongolia",     name: "Mongolia",     population: 953,  status: "stronghold", area: "Altai, Gobi-Altai, Khangai ranges",   coordinates: [95, 46], conservation: "Long-running Snow Leopard Trust research project; one of the most data-rich snow leopard research programs globally, including radio-collaring studies." },
+    { id: "china",        name: "China",        population: 2000, status: "stronghold", area: "Tibetan Plateau, Xinjiang, Qinghai",  coordinates: [90, 36], conservation: "Home to an estimated ~60% of the world's snow leopard habitat, the largest range share of any country; population data remains comparatively limited despite this scale." },
+    { id: "kazakhstan",   name: "Kazakhstan",   population: 180,  status: "critical",   area: "Tian Shan (northern)",                coordinates: [77, 43], conservation: "Party to a regional memorandum (with Kyrgyzstan, Tajikistan, Uzbekistan) on conservation across the Western Tien Shan and Pamir-Alai." },
+    { id: "kyrgyzstan",   name: "Kyrgyzstan",   population: 300,  status: "fragmented", area: "Tian Shan, Pamir-Alai",              coordinates: [74, 41], conservation: "Hosts the GSLEP Secretariat in Bishkek; site of the original 2013 Bishkek Declaration that founded GSLEP." },
+    { id: "tajikistan",   name: "Tajikistan",   population: 300,  status: "fragmented", area: "Pamir Plateau",                       coordinates: [72, 38], conservation: "Party to GSLEP and the regional Western Tien Shan/Pamir-Alai memorandum; in process of formally joining CITES." },
+    { id: "uzbekistan",   name: "Uzbekistan",   population: 20,   status: "critical",   area: "Gissar-Alai (western fringe)",       coordinates: [67, 40], conservation: "Smallest range share among the 12, but an active GSLEP member and party to regional cross-border conservation agreements." },
+    { id: "afghanistan",  name: "Afghanistan",  population: 200,  status: "critical",   area: "Wakhan Corridor, Hindu Kush",         coordinates: [69, 36], conservation: "Part of GSLEP since its founding; conservation work continues in the Wakhan Corridor despite significant operational challenges." },
+    { id: "pakistan",     name: "Pakistan",     population: 200,  status: "fragmented", area: "Karakoram, Gilgit-Baltistan",         coordinates: [73, 35], conservation: "Runs its own Snow Leopard and Ecosystem Protection Programme, focused on community-based conservation in northern mountain regions." },
+    { id: "india",        name: "India",        population: 450,  status: "fragmented", area: "Ladakh, Himachal Pradesh, Uttarakhand",coordinates: [78, 33], conservation: "Runs Project Snow Leopard and the SECURE Himalaya project; completed its first-ever nationwide scientific snow leopard census (2019–2023) via the Wildlife Institute of India." },
+    { id: "nepal",        name: "Nepal",        population: 397,  status: "stronghold", area: "Dolpo, Mustang, Kangchenjunga",       coordinates: [84, 29], conservation: "Snow Leopard and Ecosystem Management Plan (2017–2026); the Snow Leopard Conservancy trains local citizen scientists to run camera-trap monitoring." },
+    { id: "bhutan",       name: "Bhutan",       population: 100,  status: "fragmented", area: "Eastern Himalayas, Jigme Dorji NP",  coordinates: [90, 28], conservation: "Adopted a national Snow Leopard Conservation Action Plan (2024–2034); strong government-level commitment to protected-area management." },
 ];
 
 const statusConfig = {
@@ -199,6 +200,10 @@ export function SnowLeopardRangeMap() {
                                             <p className="text-xs text-stone-500 uppercase tracking-wider mb-1">Key Habitat Regions</p>
                                             <p className="text-sm text-stone-300">{selected.area}</p>
                                         </div>
+                                        <div>
+                                            <p className="text-xs text-stone-500 uppercase tracking-wider mb-1">Conservation Program</p>
+                                            <p className="text-sm text-stone-300 leading-relaxed">{selected.conservation}</p>
+                                        </div>
                                         <div className="h-1.5 rounded-full bg-stone-800 overflow-hidden">
                                             <div
                                                 className="h-full rounded-full transition-all"
@@ -209,7 +214,7 @@ export function SnowLeopardRangeMap() {
                                             />
                                         </div>
                                         <p className="text-xs text-stone-500">{selected.population} estimated individuals in this country</p>
-                                        <span className="text-[9px] text-stone-600 block mt-1 font-mono">Source: IUCN Red List / GSLEP</span>
+                                        <span className="text-[9px] text-stone-600 block mt-1 font-mono">Source: IUCN Red List / GSLEP / Snow Leopard Trust & Conservancy / National Conservation Plans</span>
                                     </div>
                                     <button
                                         onClick={() => setSelected(null)}

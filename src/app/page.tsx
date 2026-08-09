@@ -12,6 +12,12 @@ import { ConservationCharts } from "@/components/home/ConservationCharts";
 import { KnowledgeQuiz } from "@/components/home/KnowledgeQuiz";
 import { Gallery } from "@/components/home/Gallery";
 
+// Feature Expansion Components
+import { CulturalSignificance } from "@/components/home/CulturalSignificance";
+import { TimelineScrubber } from "@/components/home/TimelineScrubber";
+import { SpotTheSnowLeopard } from "@/components/home/SpotTheSnowLeopard";
+import { HowToHelp } from "@/components/home/HowToHelp";
+
 export const metadata: Metadata = {
     title: "Ghost of the Mountains — Interactive Snow Leopard Conservation Experience",
     description: "Explore facts, physical stats, taxonomy, and an interactive choose-your-own-path story dedicated to snow leopard conservation across Central Asia.",
@@ -39,12 +45,16 @@ export default function Home() {
             <VitalsAndSize />
             <SnowLeopardRangeMap />
             <Habitat />
+            <CulturalSignificance />
             <Gallery />
             <ConservationCharts />
+            <TimelineScrubber />
             <ThreatTimeline />
             <Facts />
+            <SpotTheSnowLeopard />
             <KnowledgeQuiz />
             <Solutions />
+            <HowToHelp />
             <CTA />
         </div>
     );
