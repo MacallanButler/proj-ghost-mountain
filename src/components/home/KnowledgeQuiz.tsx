@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Trophy, RotateCcw, CheckCircle2, XCircle } from "lucide-react";
+import { trackQuizStart, trackQuizQuestionAnswered, trackQuizCompleted } from "@/lib/analytics";
 
 interface Question {
     id: string;
@@ -95,6 +96,7 @@ export function KnowledgeQuiz() {
     const [finished, setFinished] = useState(false);
     const [highScore, setHighScore] = useState(0);
     const [mounted, setMounted] = useState(false);
+    const hasStartedQuiz = useRef(false);
 
     useEffect(() => {
         const saved = localStorage.getItem(LS_KEY);
@@ -109,7 +111,7 @@ export function KnowledgeQuiz() {
 
     if (!mounted || activeQuestions.length === 0) {
         return (
-            <section id="quiz" className="py-20 bg-stone-950">
+            <section id="quiz" data-section-name="knowledge_quiz" className="py-20 bg-stone-950">
                 <div className="container mx-auto px-6 max-w-2xl text-center text-stone-400">
                     <p>Loading quiz questions...</p>
                 </div>
@@ -121,13 +123,20 @@ export function KnowledgeQuiz() {
 
     const handleSelect = (idx: number) => {
         if (confirmed) return;
+        if (!hasStartedQuiz.current) {
+            hasStartedQuiz.current = true;
+            trackQuizStart();
+        }
         setSelected(idx);
     };
 
     const handleConfirm = () => {
         if (selected === null) return;
+        const isCorrect = selected === q.correct;
         setConfirmed(true);
-        if (selected === q.correct) setScore(s => s + 1);
+        if (isCorrect) setScore(s => s + 1);
+
+        trackQuizQuestionAnswered(currentQ + 1, isCorrect);
     };
 
     const handleNext = () => {
@@ -138,7 +147,8 @@ export function KnowledgeQuiz() {
         } else {
             // Finished!
             setFinished(true);
-            const finalScore = score + (selected === q.correct ? 1 : 0);
+            const finalScore = score;
+            trackQuizCompleted(finalScore, activeQuestions.length);
             if (finalScore > highScore) {
                 setHighScore(finalScore);
                 localStorage.setItem(LS_KEY, String(finalScore));
@@ -147,6 +157,7 @@ export function KnowledgeQuiz() {
     };
 
     const reset = () => {
+        hasStartedQuiz.current = false;
         setCurrentQ(0);
         setSelected(null);
         setConfirmed(false);
@@ -160,7 +171,7 @@ export function KnowledgeQuiz() {
     const pct = Math.round(((score) / activeQuestions.length) * 100);
 
     return (
-        <section id="quiz" className="py-20 bg-stone-950">
+        <section id="quiz" data-section-name="knowledge_quiz" className="py-20 bg-stone-950">
             <div className="container mx-auto px-6 max-w-2xl">
                 <div className="text-center mb-10">
                     <span className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-2 block">Test Your Knowledge</span>

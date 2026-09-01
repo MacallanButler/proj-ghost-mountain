@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Heart, Globe, Mail } from "lucide-react";
+import { trackDonateClick, trackFactSheetDownload } from "@/lib/analytics";
 
 export function CTA() {
     return (
-        <section className="py-24 px-6 relative overflow-hidden">
+        <section id="cta" data-section-name="cta" className="py-24 px-6 relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute inset-0 bg-background/80 backdrop-blur-3xl -z-10" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] -z-20" />
@@ -40,6 +41,7 @@ export function CTA() {
                 {/* Card 2: Donate */}
                 <motion.a
                     href="/donate"
+                    onClick={() => trackDonateClick("homepage_cta")}
                     whileHover={{ y: -10 }}
                     className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 overflow-hidden hover:border-blue-500/50 transition-colors"
                 >
@@ -80,6 +82,7 @@ export function CTA() {
                 <a 
                     href="/factsheet" 
                     target="_blank"
+                    onClick={() => trackFactSheetDownload()}
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 text-stone-300 hover:text-white transition-all text-sm font-semibold hover:bg-white/10"
                 >
                     <span>📄 Download Printable Educational Fact Sheet (PDF)</span>

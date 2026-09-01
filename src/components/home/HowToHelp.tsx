@@ -2,13 +2,29 @@
 
 import { Compass, Home, Calendar, Globe, Users, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
+import { trackHowToHelpLinkClick } from "@/lib/analytics";
 
-const helpOptions = [
+interface HelpOption {
+    title: string;
+    description: string;
+    linkText: string;
+    linkUrl: string;
+    organizationName: string;
+    linkType: string;
+    icon: typeof Compass;
+    color: string;
+    border: string;
+    glow: string;
+}
+
+const helpOptions: HelpOption[] = [
     {
         title: "Citizen Science Expeditions",
         description: "Join hands-on field research. Organizations like Biosphere Expeditions run volunteer-backed scientific expeditions in Kyrgyzstan's Tien Shan mountains, working with local universities and the Snow Leopard Trust to monitor populations.",
         linkText: "Learn about expeditions",
         linkUrl: "https://www.biosphere-expeditions.org",
+        organizationName: "Biosphere Expeditions",
+        linkType: "volunteer_page",
         icon: Compass,
         color: "text-blue-400",
         border: "hover:border-blue-500/45",
@@ -19,6 +35,8 @@ const helpOptions = [
         description: "Directly support communities sharing habitat with predators. The Snow Leopard Conservancy India Trust's Himalayan Homestay Program invites travelers to stay with local families, turning tourism income into conservation incentives.",
         linkText: "Explore Himalayan Homestays",
         linkUrl: "https://snowleopardindia.org",
+        organizationName: "Snow Leopard Conservancy",
+        linkType: "volunteer_page",
         icon: Home,
         color: "text-emerald-400",
         border: "hover:border-emerald-500/45",
@@ -29,6 +47,8 @@ const helpOptions = [
         description: "Participate in or spread awareness of October 23, officially proclaimed by the UN General Assembly in 2024 as the International Day of the Snow Leopard. Celebrate conservation efforts and educate others annually.",
         linkText: "Read the UN Proclamation",
         linkUrl: "https://globalsnowleopard.org",
+        organizationName: "GSLEP",
+        linkType: "homepage",
         icon: Calendar,
         color: "text-amber-400",
         border: "hover:border-amber-500/45",
@@ -39,6 +59,8 @@ const helpOptions = [
         description: "Support established groups directly. Organizations like the Snow Leopard Trust (boasting a 4-star Charity Navigator rating), Snow Leopard Conservancy, Panthera, and GSLEP lead scientific research and policy on the ground.",
         linkText: "Visit Snow Leopard Trust",
         linkUrl: "https://www.snowleopard.org/take-action/",
+        organizationName: "Snow Leopard Trust",
+        linkType: "donate_page",
         icon: Globe,
         color: "text-teal-400",
         border: "hover:border-teal-500/45",
@@ -49,6 +71,8 @@ const helpOptions = [
         description: "Spread awareness locally. Use Snow Leopard Trust's free 'Take Action' resources to host presentations, start school environmental clubs, or coordinate educational events in your local community.",
         linkText: "Access action resources",
         linkUrl: "https://www.snowleopard.org",
+        organizationName: "Snow Leopard Trust",
+        linkType: "homepage",
         icon: Users,
         color: "text-cyan-400",
         border: "hover:border-cyan-500/45",
@@ -57,8 +81,38 @@ const helpOptions = [
 ];
 
 export function HowToHelp() {
+    const internationalDayEventSchema = {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "International Day of the Snow Leopard",
+        "description": "Annual global observance proclaimed by the United Nations General Assembly to celebrate snow leopard conservation and raise worldwide awareness for high-altitude mountain ecosystems.",
+        "startDate": "2026-10-23",
+        "endDate": "2026-10-23",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "location": {
+            "@type": "VirtualLocation",
+            "url": "https://globalsnowleopard.org"
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "Global Snow Leopard & Ecosystem Protection Program (GSLEP)",
+            "url": "https://globalsnowleopard.org"
+        }
+    };
+
     return (
-        <section id="how-to-help" className="py-24 px-6 bg-[#0e1116] border-t border-stone-900/60">
+        <section
+            id="how-to-help"
+            data-section-name="how_to_help"
+            className="py-24 px-6 bg-[#0e1116] border-t border-stone-900/60"
+        >
+            {/* Event Schema JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(internationalDayEventSchema) }}
+            />
+
             <div className="max-w-[1100px] mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-16 space-y-4">
@@ -101,6 +155,8 @@ export function HowToHelp() {
                                     href={item.linkUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    data-analytics-custom="true"
+                                    onClick={() => trackHowToHelpLinkClick(item.organizationName, item.linkType)}
                                     className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:text-white transition-colors"
                                 >
                                     <span>{item.linkText}</span>

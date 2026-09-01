@@ -58,7 +58,7 @@ export function ThreatTimeline() {
     };
 
     return (
-        <section id="threats" className="py-24 px-6 overflow-hidden bg-black/5">
+        <section id="threats" data-section-name="threats" className="py-24 px-6 overflow-hidden bg-black/5">
             <div className="max-w-[1000px] mx-auto text-center mb-16">
                 <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-6 text-foreground">
                     Conservation Threats

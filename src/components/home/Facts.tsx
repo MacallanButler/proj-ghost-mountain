@@ -47,7 +47,9 @@ export function Facts() {
     };
 
     return (
-        <section id="interactive" className="py-24 px-6 relative overflow-hidden">
+        <section id="facts" data-section-name="facts" className="py-24 px-6 relative overflow-hidden">
+            {/* Backward-compatibility anchor for #interactive */}
+            <span id="interactive" className="absolute -top-24 left-0 pointer-events-none" />
             {/* FAQPage JSON-LD */}
             <script
                 type="application/ld+json"

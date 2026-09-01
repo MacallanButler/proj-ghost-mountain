@@ -14,7 +14,7 @@ export function Hero() {
     };
 
     return (
-        <header className="relative min-h-screen min-h-dvh w-full flex flex-col justify-center overflow-hidden">
+        <header id="hero" data-section-name="hero" className="relative min-h-screen min-h-dvh w-full flex flex-col justify-center overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full z-0">
                 {/* Mobile Portrait Viewport */}

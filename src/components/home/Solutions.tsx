@@ -32,7 +32,7 @@ const solutions = [
 
 export function Solutions() {
     return (
-        <section className="py-24 px-6 bg-black/10">
+        <section id="solutions" data-section-name="solutions" className="py-24 px-6 bg-black/10">
             <div className="max-w-[1100px] mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-6 text-foreground">

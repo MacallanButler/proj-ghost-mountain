@@ -45,7 +45,7 @@ export function ConservationCharts() {
     const [tab, setTab] = useState<ChartTab>("population");
 
     return (
-        <section id="data" className="py-20 bg-stone-900/50">
+        <section id="data" data-section-name="conservation_charts" className="py-20 bg-stone-900/50">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-10">
                     <span className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-2 block">Conservation Data</span>

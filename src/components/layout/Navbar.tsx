@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { trackNavClick, trackDonateClick } from "@/lib/analytics";
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -37,13 +38,14 @@ export function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-10 text-base lg:text-lg font-semibold text-white/90">
-                        <Link href="/#range-map" className="hover:text-white hover:scale-105 transition-all duration-200">Range Map</Link>
-                        <Link href="/#data" className="hover:text-white hover:scale-105 transition-all duration-200">Data</Link>
-                        <Link href="/#quiz" className="hover:text-white hover:scale-105 transition-all duration-200">Quiz</Link>
+                        <Link href="/#range-map" onClick={() => trackNavClick("range_map")} className="hover:text-white hover:scale-105 transition-all duration-200">Range Map</Link>
+                        <Link href="/#data" onClick={() => trackNavClick("data")} className="hover:text-white hover:scale-105 transition-all duration-200">Data</Link>
+                        <Link href="/#quiz" onClick={() => trackNavClick("quiz")} className="hover:text-white hover:scale-105 transition-all duration-200">Quiz</Link>
                         <Link href="/story" className="hover:text-white hover:scale-105 transition-all duration-200">Story</Link>
                         <Link href="/conservation" className="hover:text-white hover:scale-105 transition-all duration-200">Conservation</Link>
                         <Link 
                             href="/donate" 
+                            onClick={() => trackDonateClick("navbar")}
                             className="relative group overflow-hidden rounded-full p-[1.5px] transition-all hover:scale-105 duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
                         >
                             {/* Aurora Gradient Background */}
@@ -71,12 +73,12 @@ export function Navbar() {
                 isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
             }`}>
                 <div className="flex flex-col gap-6 text-xl text-center text-white/90">
-                    <Link href="/#range-map" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Range Map</Link>
-                    <Link href="/#data" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Data</Link>
-                    <Link href="/#quiz" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Quiz</Link>
+                    <Link href="/#range-map" onClick={() => { closeMenu(); trackNavClick("range_map"); }} className="hover:text-white transition-colors py-2 border-b border-white/5">Range Map</Link>
+                    <Link href="/#data" onClick={() => { closeMenu(); trackNavClick("data"); }} className="hover:text-white transition-colors py-2 border-b border-white/5">Data</Link>
+                    <Link href="/#quiz" onClick={() => { closeMenu(); trackNavClick("quiz"); }} className="hover:text-white transition-colors py-2 border-b border-white/5">Quiz</Link>
                     <Link href="/story" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Story</Link>
                     <Link href="/conservation" onClick={closeMenu} className="hover:text-white transition-colors py-2 border-b border-white/5">Conservation</Link>
-                    <Link href="/donate" onClick={closeMenu} className="bg-primary text-primary-foreground rounded-full px-6 py-3 mt-4 hover:bg-primary/80 transition-all font-semibold inline-block">
+                    <Link href="/donate" onClick={() => { closeMenu(); trackDonateClick("navbar"); }} className="bg-primary text-primary-foreground rounded-full px-6 py-3 mt-4 hover:bg-primary/80 transition-all font-semibold inline-block">
                         Donate
                     </Link>
                 </div>

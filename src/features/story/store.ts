@@ -36,7 +36,7 @@ export const useStoryStore = create<StoryStore>((set, get) => ({
         if (!choice) return;
 
         // Apply effects
-        let newStats = { ...state.stats };
+        const newStats = { ...state.stats };
         if (choice.effect) {
             newStats[choice.effect.stat] = Math.max(0, Math.min(100, newStats[choice.effect.stat] + choice.effect.value));
         }

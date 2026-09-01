@@ -5,7 +5,7 @@ import { storyNodes } from "@/data/story-nodes";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Heart, Wind, ShieldAlert, RotateCcw, Home } from "lucide-react";
 
@@ -17,7 +17,7 @@ import riverBg from "@/assets/matt-palmer-kbTp7dBzHyY-unsplash.jpg";
 import huntBg from "@/assets/giuseppe-mondi-xyE1p1rG04U-unsplash.jpg";
 import profileBg from "@/assets/peter-robbins-SzCNRFtF6ZQ-unsplash.jpg";
 
-const imageMap: Record<string, any> = {
+const imageMap: Record<string, StaticImageData> = {
     'start': heroBg,
     'ridge_path': himalayasBg,
     'valley_floor': valleyBg,

@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Scale, Users, TrendingUp } from "lucide-react";
+import { trackTimelineMilestoneClick } from "@/lib/analytics";
 
 interface Milestone {
     year: string;
@@ -147,15 +148,23 @@ export function TimelineScrubber() {
     }, [activeIndex]);
 
     const handlePrev = () => {
-        setActiveIndex((prev) => (prev > 0 ? prev - 1 : milestones.length - 1));
+        const newIdx = activeIndex > 0 ? activeIndex - 1 : milestones.length - 1;
+        setActiveIndex(newIdx);
+        trackTimelineMilestoneClick(milestones[newIdx].year, milestones[newIdx].title);
     };
 
     const handleNext = () => {
-        setActiveIndex((prev) => (prev < milestones.length - 1 ? prev + 1 : 0));
+        const newIdx = activeIndex < milestones.length - 1 ? activeIndex + 1 : 0;
+        setActiveIndex(newIdx);
+        trackTimelineMilestoneClick(milestones[newIdx].year, milestones[newIdx].title);
     };
 
     return (
-        <section id="timeline" className="py-24 px-6 bg-stone-900/40 border-y border-stone-900/60">
+        <section
+            id="timeline"
+            data-section-name="timeline"
+            className="py-24 px-6 bg-stone-900/40 border-y border-stone-900/60"
+        >
             <div className="max-w-[1100px] mx-auto">
                 
                 {/* Header */}
@@ -189,7 +198,10 @@ export function TimelineScrubber() {
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => setActiveIndex(idx)}
+                                        onClick={() => {
+                                            setActiveIndex(idx);
+                                            trackTimelineMilestoneClick(m.year, m.title);
+                                        }}
                                         className="flex flex-col items-center min-w-[70px] z-10 focus:outline-none group"
                                     >
                                         {/* Year text */}

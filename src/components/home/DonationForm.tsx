@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Shield, Lock, CheckCircle2, CreditCard, Heart } from "lucide-react";
+import { Shield, CheckCircle2, CreditCard, Heart } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 const PRESETS = [25, 50, 100, 250];
@@ -36,6 +36,7 @@ export function DonationForm() {
 
     const handlePay = () => {
         trackEvent("donate_click", {
+            source_location: "donate_page",
             amount: finalAmount,
             program: program,
             currency: "USD",

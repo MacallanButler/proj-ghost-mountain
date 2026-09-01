@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import { trackCountryCardClick, trackRangeMapMarkerClick } from "@/lib/analytics";
 
 interface Country {
     id: string;
@@ -40,8 +41,35 @@ const statusConfig = {
 export function SnowLeopardRangeMap() {
     const [selected, setSelected] = useState<Country | null>(null);
 
+    const itemListSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Snow Leopard 12-Country Range & Conservation Data",
+        "description": "Comprehensive conservation data, estimated populations, key habitat regions, and active conservation programs across all 12 snow leopard range countries in Central and South Asia.",
+        "numberOfItems": countries.length,
+        "itemListElement": countries.map((country, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": country.name,
+            "description": `${country.name}: Estimated population ${country.population}+ individuals. Status: ${country.status}. Key regions: ${country.area}. Conservation: ${country.conservation}`
+        }))
+    };
+
     return (
-        <section id="range-map" className="py-20 bg-stone-950">
+        <section
+            id="per-country-data"
+            data-section-name="per_country_data"
+            className="py-20 bg-stone-950 relative"
+        >
+            {/* Backward compatibility anchor for #range-map */}
+            <span id="range-map" className="absolute -top-24 left-0 pointer-events-none" />
+
+            {/* ItemList Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
+
             <div className="container mx-auto px-6">
                 <div className="text-center mb-10">
                     <span className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-2 block">Habitat Range</span>
@@ -103,7 +131,11 @@ export function SnowLeopardRangeMap() {
                                                     }}
                                                     onClick={() => {
                                                         if (isTarget) {
+                                                            const isOpening = selected?.id !== cData.id;
                                                             setSelected(prev => prev?.id === cData.id ? null : cData);
+                                                            if (isOpening) {
+                                                                trackRangeMapMarkerClick(cData.name);
+                                                            }
                                                         }
                                                     }}
                                                 />
@@ -118,9 +150,15 @@ export function SnowLeopardRangeMap() {
                                     const isSelected = selected?.id === country.id;
                                     return (
                                         <Marker 
-                                            key={`marker-\${country.id}`} 
+                                            key={`marker-${country.id}`} 
                                             coordinates={country.coordinates}
-                                            onClick={() => setSelected(prev => prev?.id === country.id ? null : country)}
+                                            onClick={() => {
+                                                const isOpening = selected?.id !== country.id;
+                                                setSelected(prev => prev?.id === country.id ? null : country);
+                                                if (isOpening) {
+                                                    trackRangeMapMarkerClick(country.name);
+                                                }
+                                            }}
                                             style={{
                                                 default: { outline: "none" },
                                                 hover: { outline: "none", cursor: "pointer" },
@@ -161,7 +199,13 @@ export function SnowLeopardRangeMap() {
                                 return (
                                     <button
                                         key={c.id}
-                                        onClick={() => setSelected(prev => prev?.id === c.id ? null : c)}
+                                        onClick={() => {
+                                            const isOpening = selected?.id !== c.id;
+                                            setSelected(prev => prev?.id === c.id ? null : c);
+                                            if (isOpening) {
+                                                trackCountryCardClick(c.name);
+                                            }
+                                        }}
                                         className={`px-2 py-1.5 rounded-lg text-xs font-medium border transition-all text-left ${selected?.id === c.id
                                                 ? "border-white/50 text-white bg-stone-800"
                                                 : "border-stone-800 text-stone-400 hover:border-stone-600 hover:text-white"

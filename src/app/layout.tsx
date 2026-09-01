@@ -5,6 +5,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { GoogleAnalytics } from "@/components/layout/GoogleAnalytics";
+import { ScrollDepthTracker } from "@/components/layout/ScrollDepthTracker";
+import { SectionViewTracker } from "@/components/layout/SectionViewTracker";
+import { ExternalLinkTracker } from "@/components/layout/ExternalLinkTracker";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,6 +52,9 @@ export default function RootLayout({
             <body className={inter.className}>
                 <GoogleAnalytics />
                 <ScrollProgress />
+                <ScrollDepthTracker />
+                <SectionViewTracker />
+                <ExternalLinkTracker />
                 <div className="min-h-screen bg-background text-foreground font-sans">
                     <Navbar />
                     <main>
