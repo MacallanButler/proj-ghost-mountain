@@ -27,11 +27,34 @@ export default function StoryPage() {
         "url": "https://ghostofthemountains.org/story"
     };
 
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ghostofthemountains.org"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Survive as a Snow Leopard",
+                "item": "https://ghostofthemountains.org/story"
+            }
+        ]
+    };
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
             <StoryClient />
         </>

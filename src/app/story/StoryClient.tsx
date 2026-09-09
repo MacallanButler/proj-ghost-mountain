@@ -49,6 +49,19 @@ export default function StoryClient() {
     return (
         <div className="min-h-screen pt-28 pb-16 px-4 bg-background flex flex-col items-center justify-center">
             
+            {/* Title Header for SEO and Context */}
+            <div className="w-full max-w-3xl mx-auto mb-6 text-center">
+                <span className="text-xs font-bold uppercase tracking-widest text-primary mb-1 block">
+                    Interactive Educational Simulation
+                </span>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                    Survive as a Snow Leopard
+                </h1>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                    Navigate the perils of the high Himalayas, balance health and stealth, and make critical survival decisions.
+                </p>
+            </div>
+
             {/* Stats Dashboard */}
             <div className="w-full max-w-3xl mx-auto mb-6 grid grid-cols-2 gap-4">
                 <div className="bg-card border border-border rounded-xl p-3 flex items-center justify-between">

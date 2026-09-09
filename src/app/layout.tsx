@@ -13,8 +13,19 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://ghostofthemountains.org"),
-    title: "Ghost of the Mountains",
-    description: "Ghost of the Mountains — an interactive conservation experience dedicated to protecting the snow leopard across 12 countries.",
+    title: {
+        default: "Ghost of the Mountains — Snow Leopard Conservation & Interactive Guide",
+        template: "%s | Ghost of the Mountains",
+    },
+    description: "Ghost of the Mountains — an interactive conservation experience and educational guide dedicated to protecting the snow leopard across 12 Central and South Asian countries.",
+    icons: {
+        icon: [
+            { url: "/icon.svg", type: "image/svg+xml" },
+        ],
+        apple: [
+            { url: "/apple-icon.svg", type: "image/svg+xml" },
+        ],
+    },
     alternates: {
         canonical: "/",
     },

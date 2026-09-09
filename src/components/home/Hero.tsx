@@ -48,10 +48,21 @@ export function Hero() {
             {/* Atmospheric grain / overlay */}
             <div className="absolute inset-0 z-0 bg-[radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:3px_3px] opacity-20 pointer-events-none" />
 
-            <div className="relative z-10 px-6 pt-36 md:pt-44 max-w-[1100px] mx-auto w-full text-center md:text-left">
-                <p className="max-w-[65ch] text-xl md:text-2xl text-white mb-10 font-medium"
-                    style={{ textShadow: '0 1px 3px rgba(0,0,0,1), 0 4px 16px rgba(0,0,0,0.6)' }}>
-                    An interactive guide to one of the world’s most elusive big cats.
+            <div className="relative z-10 px-6 pt-36 md:pt-44 max-w-[1100px] mx-auto w-full text-center md:text-left space-y-6">
+                <h1
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1]"
+                    style={{ textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 8px 24px rgba(0,0,0,0.6)' }}
+                >
+                    The Ghost of the Mountains
+                    <span className="block text-xl sm:text-2xl md:text-3xl text-primary font-semibold tracking-normal mt-3">
+                        Interactive Snow Leopard Conservation Experience
+                    </span>
+                </h1>
+                <p
+                    className="max-w-[65ch] text-lg sm:text-xl text-stone-200 font-medium leading-relaxed pb-4"
+                    style={{ textShadow: '0 1px 3px rgba(0,0,0,1), 0 4px 16px rgba(0,0,0,0.6)' }}
+                >
+                    Explore population data across 12 range countries, discover cultural lore, test your eyes in high-altitude camouflage challenges, and uncover what stands between the snow leopard and extinction.
                 </p>
                 <button
                     onClick={scrollToAbout}

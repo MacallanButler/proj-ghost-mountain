@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="snowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#bgGrad)"/>
+  <rect width="180" height="180" rx="40" fill="none" stroke="rgba(56, 189, 248, 0.4)" stroke-width="6"/>
+  <path d="M20 145 L68 78 L102 115 L136 62 L160 145 Z" fill="#1e293b" opacity="0.8"/>
+  <path d="M68 78 L78 95 L62 102 Z" fill="#94a3b8" opacity="0.6"/>
+  <path d="M136 62 L146 84 L128 90 Z" fill="#cbd5e1" opacity="0.8"/>
+  <path d="M10 150 L55 105 L90 132 L125 98 L170 150" fill="none" stroke="url(#snowGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90 55 C82 55 76 62 76 71 C76 83 90 98 90 98 C90 98 104 83 104 71 C104 62 98 55 90 55 Z" fill="url(#snowGrad)"/>
+  <circle cx="65" cy="64" r="11" fill="url(#snowGrad)"/>
+  <circle cx="115" cy="64" r="11" fill="url(#snowGrad)"/>
+</svg>
